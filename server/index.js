@@ -1,17 +1,14 @@
 import express from "express";
 import mysql from "mysql";
 import cors from "cors";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "root123",
-  database: "test",
-});
+const db = mysql.createConnection(process.env.DATABASE_URL);
 
 app.get("/", (req, res) => {
   res.json("hello world");
@@ -77,6 +74,6 @@ app.put("/books/:id", (req, res) => {
   });
 });
 
-app.listen(4000, () => {
+app.listen(process.env.PORT || 4000, () => {
   console.log("connected");
 });

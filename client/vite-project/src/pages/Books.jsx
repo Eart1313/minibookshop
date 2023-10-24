@@ -30,11 +30,10 @@ const Books = () => {
 
   return (
     <div className="flex flex-col min-h-[100vh] items-center justify-center m-[50px]">
-      <h1 className="flex text-[2.5rem] font-semibold mb-[50px]">
-        Eart <span className="text-[blue]">Book</span>
-        <span className="text-[red]">Shops</span>
+      <h1 className="flex text-[2.5rem] font-bold mb-[50px] text-[blue]">
+        BookBeezShop
       </h1>
-      <div className="grid grid-cols-3 gap-[100px]">
+      <div className="grid grid-cols-1 gap-[100px] sm:grid-cols-3">
         {books.map((item) => (
           <div
             className="flex flex-[4] flex-col gap-[10px] items-center text-center"
