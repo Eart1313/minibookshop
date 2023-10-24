@@ -78,4 +78,4 @@ const Books = () => {
   );
 };
 
-export default Books;
+export default BooksPage;
