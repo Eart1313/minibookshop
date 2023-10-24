@@ -33,7 +33,10 @@ const Update = () => {
     }
 
     try {
-      await axios.put(`http://localhost:4000/books/${params.id}`, book);
+      await axios.put(
+        `https://lonely-umbrella-mite.cyclic.app/books/${params.id}`,
+        book
+      );
       navigate("/");
     } catch (error) {
       console.log(error);

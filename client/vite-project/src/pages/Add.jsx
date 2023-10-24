@@ -32,7 +32,7 @@ const Add = () => {
     }
 
     try {
-      await axios.post("http://localhost:4000/books", book);
+      await axios.post("https://lonely-umbrella-mite.cyclic.app/books", book);
       navigate("/");
     } catch (error) {
       console.log(error);

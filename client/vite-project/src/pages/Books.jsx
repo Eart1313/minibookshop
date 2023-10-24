@@ -8,7 +8,9 @@ const Books = () => {
   useEffect(() => {
     const fetchAllbooks = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/books");
+        const res = await axios.get(
+          "https://lonely-umbrella-mite.cyclic.app/books"
+        );
         setBooks(res.data);
       } catch (error) {
         console.log(error);
@@ -16,10 +18,10 @@ const Books = () => {
     };
     fetchAllbooks();
   }, []);
-
+  console.log(books, "test");
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:4000/books/${id}`);
+      await axios.delete(`https://lonely-umbrella-mite.cyclic.app/books/${id}`);
       setBooks((prev) => {
         return prev.filter((item) => item.id !== id);
       });
@@ -34,7 +36,7 @@ const Books = () => {
         BookBeezShop
       </h1>
       <div className="grid grid-cols-1 gap-[100px] sm:grid-cols-3">
-        {books.map((item) => (
+        {books?.map((item) => (
           <div
             className="flex flex-[4] flex-col gap-[10px] items-center text-center"
             key={item.id}>
@@ -52,7 +54,7 @@ const Books = () => {
             <h2 className="font-semibold">{item.title.slice(0, 100)}</h2>
             <p>{item.desc.slice(0, 255)}</p>
             <span className="font-semibold text-[green]">
-              {item.price.toLocaleString()} THB
+              {item.price.toString()} THB
             </span>
             <button
               className="py-[3px] px-[6px] border-[1px] border-[red] text-[red] bg-[white]"
